@@ -56,6 +56,11 @@ body{
     outline: none;
 }
 
+.button:focus:active {
+    background-color: #383838;
+}
+
+
 .number {
     background-color: #000000;
     color:#ffffff;
