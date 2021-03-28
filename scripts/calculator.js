@@ -34,25 +34,59 @@ CALC_DELETE.addEventListener("click", deleteInputEvent);
 CALC_CLEAR.addEventListener("click", clearCalculator);
 
 
-// keyboard listender
+// key press down listener
 document.addEventListener("keydown", function(event) {
     let keyboardInput = event.key;
     
+    
     if (keyboardInput >= 0 && keyboardInput <=9){
-        document.querySelector(`button[data-key="${keyboardInput}"]`).click();
-
+        let button = document.querySelector(`button[data-key="${keyboardInput}"]`);      
+        button.click();
+        button.classList.add("button-pressed");
     } else if (keyboardInput == ".") {
-        document.querySelector(`button[data-key="."]`).click();
+        let button = document.querySelector(`button[data-key="."]`);
+        button.click();
+        button.classList.add("button-pressed");
     } else if (keyboardInput == "+" || keyboardInput == "-" || keyboardInput == "*" || keyboardInput == "/") {
-        document.querySelector(`button[data-key="${keyboardInput}"]`).click();
+        let button = document.querySelector(`button[data-key="${keyboardInput}"]`);
+        button.click();
+        button.classList.add("button-pressed");
     } else if (keyboardInput == "=" || keyboardInput == "Enter") {        
-        document.querySelector(`button[data-key="="]`).click();
+        let button = document.querySelector(`button[data-key="="]`);
+        button.click();
+        button.classList.add("equals-pressed");
     } else if (keyboardInput == "Backspace") {
-        document.querySelector(`button[data-key="Backspace"]`).click();
+        let button = document.querySelector(`button[data-key="Backspace"]`);
+        button.click();
+        button.classList.add("button-pressed");
     }
     
+});
+
+
+// key press up listener
+document.addEventListener("keyup", function(event) {
+    let keyboardInput = event.key;
+    
+    if (keyboardInput >= 0 && keyboardInput <=9){
+        let button = document.querySelector(`button[data-key="${keyboardInput}"]`);
+        button.classList.remove("button-pressed");
+    } else if (keyboardInput == ".") {
+        let button = document.querySelector(`button[data-key="."]`);
+        button.classList.remove("button-pressed");
+    } else if (keyboardInput == "+" || keyboardInput == "-" || keyboardInput == "*" || keyboardInput == "/") {
+        let button = document.querySelector(`button[data-key="${keyboardInput}"]`);
+        button.classList.remove("button-pressed");
+    } else if (keyboardInput == "=" || keyboardInput == "Enter") {        
+        let button = document.querySelector(`button[data-key="="]`);
+        button.classList.remove("equals-pressed");
+    } else if (keyboardInput == "Backspace") {
+        let button = document.querySelector(`button[data-key="Backspace"]`);
+        button.classList.remove("button-pressed");
+    }
     
 });
+
 
 
 function add(num1, num2) {

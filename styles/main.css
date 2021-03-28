@@ -80,3 +80,14 @@ body{
 .equals:hover {
     background-color: #3f68a7;
 }
+
+
+.button-pressed {
+    background-color: #383838;
+}
+
+
+
+.equals-pressed {
+    background-color: #3f68a7;
+}
